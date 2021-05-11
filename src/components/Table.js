@@ -5,7 +5,7 @@ import { Button, Container, Table,Row,Col, Badge,Jumbotron } from 'react-bootstr
 const Table1 =()=>
 
     {
-        const [redisData,setRedisData]=useState(['ofer','uriel'])
+        const [redisData,setRedisData]=useState([''])
         const [count,setCount]=useState(0)
         useEffect(() => {
             const interval = setInterval(() => {
@@ -54,22 +54,10 @@ const Table1 =()=>
                     </tr>
                   </thead>
                   <tbody>
-                    {/* <tr>
-                      <td>1</td>
-                      <td>Mark</td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Jacob</td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td colSpan="2">Larry the Bird</td>
-                    </tr> */}
                     {redisData.map((url,index)=>
                     <tr>
                         <td>{index}</td>
-                      <td>{url}</td>
+                      <td style={{maxWidth:'0rem',overflow:'hidden'}}>{url}</td>
                     </tr>)
                     }
                   </tbody>

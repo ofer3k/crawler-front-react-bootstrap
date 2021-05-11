@@ -5,8 +5,8 @@ import { Button, Container, Table,Row,Col } from 'react-bootstrap';
 const Mongo =()=>
 
     {
-        const [redisData,setRedisData]=useState(['ofer','uriel'])
-        const [count,setCount]=useState(0)
+        const [redisData,setRedisData]=useState([''])
+       
         useEffect(() => {
             const interval = setInterval(() => {
               fetchFromMongo()
@@ -42,33 +42,26 @@ const Mongo =()=>
             <Row>
               <Col sm>            
                 
-                <Table striped bordered hover variant="dark">
+                <Table style={{maxWidth:'300%'}} striped bordered hover variant="dark">
                   <thead>
                     <tr>
                       <th>#</th>
                       <th>url</th>
                     </tr>
                   </thead>
+
                   <tbody>
-                    {/* <tr>
-                      <td>1</td>
-                      <td>Mark</td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Jacob</td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td colSpan="2">Larry the Bird</td>
-                    </tr> */}
+                    {/* map the fetched data */}
                     {redisData.map((url,index)=>
-                    <tr>
+                    <tr >
                         <td>{index}</td>
-                      <td>{url.title}</td>
+                      <td style={{maxWidth:'20rem',overflow:'hidden'}}>{url.title}</td>
+                      <td style={{maxWidth:'',overflow:'hidden'}}>
+                        {url.childrens}</td>
                     </tr>)
                     }
                   </tbody>
+
                 </Table>
                           
                     </Col>

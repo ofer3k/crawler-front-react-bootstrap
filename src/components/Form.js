@@ -1,30 +1,15 @@
-import { useState } from "react";
 import React from 'react';
-import { Form, Button,Container } from 'react-bootstrap';
-
+import { Form, Button,Container, Spinner } from 'react-bootstrap';
 
 const Form1 =()=>
     {
-      // const a=async function (e) {
-      //   e.preventDefault()
-      //   // get the url
-      //   alert(e.target.firstChild.children[1].value)
-      //    fetch('http://localhost:8080/api/listRedis', {
-      //   method: 'GET',
-      //   // We convert the React state to JSON and send it as the POST body
-      //   // body: JSON.stringify(this.state)
-      // }).then(function(response) {
-      //   console.log(response)
-      //   return response.json();
-      // });
-      // }
+    // send the first url to server and from server to sqs
       const  handleSubmit =async (event) => {
         event.preventDefault()
         let data={
           url:event.target.firstChild.children[1].value
         }
         let send=JSON.stringify(data)
-        
         console.log(data)
          fetch('http://localhost:8080/api/new-url', {
           headers: {
@@ -41,7 +26,6 @@ const Form1 =()=>
           
         }
         return(
-         
             <Form style={{borderBottom:'2px solid black'}} onSubmit={handleSubmit}>
             <Form.Group controlId="formBasicEmail">
               <Form.Label>URL</Form.Label>

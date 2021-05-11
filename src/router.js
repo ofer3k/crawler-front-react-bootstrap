@@ -1,17 +1,11 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
 import { Navbar, Nav,} from 'react-bootstrap';
-// import Home from './components/Home'
-import Footer from './components/Footer';
 import HomeSplit from './components/HomeSplit'
 import Table1 from './components/Table'
 import Buttons from "./components/Buttons";
 import Mongo from './components/Mongo'
+import Chart from './components/ChartNew'
 
 export default function AppRouter() {
   return (
@@ -23,6 +17,11 @@ export default function AppRouter() {
               <Navbar.Brand>My-Crawler</Navbar.Brand>
               </Link>
               <Nav style={{marginLeft:'auto'}} >
+        
+              <Link style={{ textDecoration: 'none' }} to="/chart">
+              <Navbar.Brand>Chart</Navbar.Brand>
+              </Link>
+
               <Link style={{ textDecoration: 'none' }} to="/redis">
               <Navbar.Brand>Redis</Navbar.Brand>
               </Link>
@@ -33,7 +32,10 @@ export default function AppRouter() {
               <Link to="/buttons">
               <Navbar.Brand eventKey={2}>Boss's Dashboard</Navbar.Brand>
               </Link>
+              
               </Nav>
+
+              
       </Navbar>
 
         <Switch>
@@ -53,19 +55,14 @@ export default function AppRouter() {
             <Mongo />
           </Route>
 
+          <Route path="/chart">
+            <Chart  />
+          </Route>
+
         </Switch>
-      <Footer/>
+
     </Router>
 
   );
 }
 
-
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
-}
