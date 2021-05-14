@@ -7,7 +7,9 @@ const gitHubUrl = "http://localhost:8001/api/mongo/posts/graph";
 
 const options = {
   layout: {
-    hierarchical: false
+    hierarchical: false,
+    improvedLayout:true,
+    clusterThreshold: 150,
   },
   edges: {
     color: "#000000"

@@ -63,7 +63,9 @@ function App() {
     clickToUse: false,
     
     layout:{
+    
       hierarchical: {
+        sortMethod:'directed',
       levelSeparation:500,
       nodeSpacing:400,
       parentCentralization:false
